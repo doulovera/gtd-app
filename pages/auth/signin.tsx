@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Header from '@components/shared/Header';
 import { logInGoogle } from '@utils/firebase/client';
+import SignInProviderButton from '@components/auth/SignInProviderButton';
 
 const SignIn: NextPage = () => {
   const authMethods = [
@@ -15,7 +16,8 @@ const SignIn: NextPage = () => {
       name: 'Github',
       icon: 'github',
       color: 'bg-gray-700',
-      method: logInGoogle,
+      method: () => console.log('Github'),
+      disabled: true,
     },
   ];
 
@@ -30,16 +32,7 @@ const SignIn: NextPage = () => {
         <Header />
         <div className="w-11/12 max-w-sm px-4 py-8 m-auto">
           {
-            authMethods.map((auth) => (
-              <button
-                key={auth.name}
-                className={`w-full ${auth.color} mb-4 text-white font-bold py-2 px-4 rounded-md`}
-                onClick={auth.method}
-                type="button"
-              >
-                {auth.name}
-              </button>
-            ))
+            authMethods.map((auth) => <SignInProviderButton key={auth.name} {...auth} />)
           }
         </div>
       </div>
