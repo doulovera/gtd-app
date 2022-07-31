@@ -8,7 +8,7 @@ const App: NextPage = () => {
         <title>Today&apos;s tasks</title>
         <meta name="description" content="GTD App" />
       </Head>
-      <div>
+      <div className="bg-primary-darker">
         <h1>Test</h1>
       </div>
     </>

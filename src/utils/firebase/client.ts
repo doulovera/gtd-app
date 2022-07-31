@@ -29,6 +29,7 @@ const mapUserFromAuth = (user: any) => {
 export const onAuthChanged = (onChange: (user: userInfo | null) => void) => {
   return onAuthStateChanged(auth, (user) => {
     const normalizedUser = user ? mapUserFromAuth(user) : null;
+    console.log(user);
     onChange(normalizedUser);
   });
 };

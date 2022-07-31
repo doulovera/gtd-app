@@ -1,6 +1,5 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Header from '@components/shared/Header';
 import { logInGoogle } from '@utils/firebase/client';
 import SignInProviderButton from '@components/auth/SignInProviderButton';
 
@@ -29,7 +28,6 @@ const SignIn: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="h-screen">
-        <Header />
         <div className="w-11/12 max-w-sm px-4 py-8 m-auto">
           {
             authMethods.map((auth) => <SignInProviderButton key={auth.name} {...auth} />)
